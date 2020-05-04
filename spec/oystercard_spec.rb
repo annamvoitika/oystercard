@@ -3,6 +3,7 @@ describe Oystercard do
   subject { Oystercard.new(0) }
   let(:card){double :card, in_journey?: true}
   let(:entry_station){double :entry_station}
+  let(:exit_station){double :exit_station}
 
   it 'has balance of zero' do
     expect(subject.balance).to eq(0)
@@ -18,11 +19,15 @@ describe Oystercard do
 
   describe '#touch out' do
     it 'can touch out' do
-      expect(subject.touch_out).to eq false
+      expect(subject.touch_out(exit_station)).to eq false
     end
 
     it 'deducts journey cost from the card when touching out' do
-      expect{ subject.touch_out }.to change {subject.balance}.by(-1)
+      expect{ subject.touch_out(exit_station) }.to change {subject.balance}.by(-1)
+    end
+
+    it 'remembers a station where you touched out' do
+      expect(subject).to respond_to{touch_out(exit_station)}
     end
   end
 
