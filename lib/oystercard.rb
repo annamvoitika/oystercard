@@ -26,15 +26,13 @@ class Oystercard
     @in_use = false
   end
 
-private
+  private
 
-def in_journey?
-  if in_use == true
-    return true
-  else return false
+  def in_journey?
+    if in_use == true
+      return true
+    else return false
+    end
   end
-end
-
-
 
 end
