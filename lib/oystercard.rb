@@ -23,6 +23,7 @@ class Oystercard
   end
 
   def touch_out
+    deduct(1)
     @in_use = false
   end
 

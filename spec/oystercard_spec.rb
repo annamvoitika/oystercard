@@ -11,12 +11,18 @@ describe Oystercard do
     expect{ subject.deduct(5) }.to change { subject.balance }.by(-5)
   end
 
-  it 'can touch out' do
-    expect(subject.touch_out).to eq false
-  end
-
   it 'can understand if card is in journey' do
     expect(card.in_journey?).to be true
+  end
+
+  describe '#touch out' do
+    it 'can touch out' do
+      expect(subject.touch_out).to eq false
+    end
+
+    it 'deducts journey cost from the card when touching out' do
+      expect{ subject.touch_out }.to change {subject.balance}.by(-1)
+    end
   end
 
   describe '#touch in' do
