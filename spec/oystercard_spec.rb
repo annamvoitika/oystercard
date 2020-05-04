@@ -1,6 +1,7 @@
 require 'oystercard'
 describe Oystercard do
   subject { Oystercard.new(0) }
+  let(:card){double :card, in_journey?: true}
 
   it 'has balance of zero' do
     expect(subject.balance).to eq(0)
@@ -8,6 +9,18 @@ describe Oystercard do
 
   it 'money can be deducted' do
     expect{ subject.deduct(5) }.to change { subject.balance }.by(-5)
+  end
+
+  it 'can touch in' do
+    expect(subject.touch_in).to eq true
+  end
+
+  it 'can touch out' do
+    expect(subject.touch_out).to eq false 
+  end
+
+  it 'can understand if card is in journey' do
+    expect(card.in_journey?).to be true
   end
 
 describe '#top up' do

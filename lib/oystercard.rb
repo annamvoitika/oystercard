@@ -1,9 +1,10 @@
 class Oystercard
-  attr_reader :balance
+  attr_accessor :balance
   MAX_BALANCE = 90
 
   def initialize(balance)
     @balance = balance
+    @in_use = false
   end
 
   def top_up(amount)
@@ -13,6 +14,25 @@ class Oystercard
 
   def deduct(amount)
     @balance -= amount
-  end 
+  end
+
+  def touch_in
+    @in_use = true
+  end
+
+  def touch_out
+    @in_use = false
+  end
+
+private
+
+def in_journey?
+  if in_use == true
+    return true
+  else return false
+  end
+end
+
+
 
 end
