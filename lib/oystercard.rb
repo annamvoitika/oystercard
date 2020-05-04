@@ -20,13 +20,19 @@ class Oystercard
   def touch_in(entry_station)
     raise 'Insufficient balance, you need £1 minimum to travel' if @balance < MIN_BALANCE
     @entry_station = entry_station
-    return true
+    in_journey?
   end
 
   def touch_out
     deduct(1)
     @entry_station = nil
-    return false
+    in_journey?
   end
 
+  def in_journey?
+    if @entry_station == nil
+      return false
+    else return true
+    end
+  end
 end
