@@ -28,6 +28,21 @@ end
     subject.entrance('Covent Garden')
     subject.exit('Marylebone')
     expect(subject.show_history).to eq [{'Bethnal Green' => 'Old Street'}, {'Covent Garden' => 'Marylebone'}]
+  end
+
+  it 'can determine if journey is incomplete' do
+    allow(subject).to receive(:incomplete_journey?) {true}
+    expect(subject.incomplete_journey?).to eq true
+  end
+
+  it 'returns penalty fare if journey is incomplete' do
+    allow(subject).to receive(:incomplete_journey?) {true}
+    expect(subject.fare).to eq(6)
+  end
+
+  it 'returns standard fare if journey is complete' do
+    allow(subject).to receive(:incomplete_journey?) {false}
+    expect(subject.fare).to eq(1)
   end 
 
 end
