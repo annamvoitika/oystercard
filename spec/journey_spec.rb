@@ -22,4 +22,12 @@ end
     expect(subject.exit('Marylebone')).to eq [{'Bethnal Green' => 'Old Street'}, {'Covent Garden' => 'Marylebone'}]
   end
 
+  it 'can print history of all journeys' do
+    subject.entrance('Bethnal Green')
+    subject.exit('Old Street')
+    subject.entrance('Covent Garden')
+    subject.exit('Marylebone')
+    expect(subject.show_history).to eq [{'Bethnal Green' => 'Old Street'}, {'Covent Garden' => 'Marylebone'}]
+  end 
+
 end

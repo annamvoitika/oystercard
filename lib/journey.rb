@@ -22,4 +22,8 @@ class Journey
     else true
     end
   end
+
+  def show_history
+    return @all_trips
+  end 
 end
