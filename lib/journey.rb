@@ -8,12 +8,12 @@ class Journey
 
   def entrance(entry_station)
     @entry_station = entry_station
-    @all_trips << entry_station
   end
 
   def exit(exit_station)
     @exit_station = exit_station
-    @all_trips << exit_station
+    hash1 = {entry_station => exit_station}
+    @all_trips.push(hash1)
   end
 
   def in_journey?
