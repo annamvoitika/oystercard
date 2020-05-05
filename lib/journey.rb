@@ -25,5 +25,5 @@ class Journey
 
   def show_history
     return @all_trips
-  end 
+  end
 end

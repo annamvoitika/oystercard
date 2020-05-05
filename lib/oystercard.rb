@@ -31,4 +31,6 @@ class OysterCard
     entry_station = nil
     @journey.in_journey?
   end
+
+  
 end

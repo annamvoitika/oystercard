@@ -19,6 +19,7 @@ describe OysterCard do
     expect(card.in_journey?).to be true
   end
 
+
   describe '#touch out' do
     it 'can touch out' do
       expect(subject.touch_out(exit_station)).to eq false
