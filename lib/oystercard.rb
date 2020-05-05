@@ -5,7 +5,7 @@ class OysterCard
   MAX_BALANCE = 90
   MIN_BALANCE = 1
 
-  def initialize(balance)
+  def initialize(balance = 0)
     @balance = balance
     @journey = Journey.new
   end
@@ -28,7 +28,7 @@ class OysterCard
   def touch_out(exit_station)
     deduct(1)
     @journey.exit(exit_station)
-    @entry_station = nil
+    entry_station = nil
     @journey.in_journey?
   end
 end
