@@ -1,5 +1,6 @@
 require 'oystercard'
 require 'journey'
+
 describe Oystercard do
   subject { Oystercard.new(0) }
   let(:card){double :card, in_journey?: true}
@@ -37,11 +38,6 @@ describe Oystercard do
       expect{ subject.touch_in(entry_station) }.to raise_error 'Insufficient balance, you need £1 minimum to travel'
     end
 
-#  it 'can touch in' do
-  #  subject = Oystercard.new(10)
-  #    expect(subject.touch_in(entry_station)).to eq true
-  #  end
-
   it 'remembers a station where you touched in' do
     expect(subject).to respond_to{touch_in(entry_station)}
   end
@@ -63,6 +59,18 @@ describe Journey do
   journey = Journey.new
   expect(journey).to respond_to(:entrance)
 end
+
+  it 'can store exit station in all trips log' do
+    journey = Journey.new
+    expect(journey.exit('Notting Hill')).to eq [nil, 'Notting Hill']
+  end
+
+  it 'can store entry and exit station in all trips log' do
+    journey = Journey.new
+    journey.entrance('Holborn')
+    expect(journey.exit('Mile End')).to eq ['Holborn', 'Mile End']
+  end 
+
 end
 
 
