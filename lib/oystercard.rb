@@ -1,4 +1,6 @@
 require_relative 'journey'
+require_relative 'journey_log'
+require_relative 'station'
 
 class OysterCard
   attr_accessor :balance
@@ -32,5 +34,5 @@ class OysterCard
     @journey.in_journey?
   end
 
-  
+
 end

@@ -1,11 +1,12 @@
-require_relative 'oystercard'
+
 class Journey
   attr_reader :entry_station, :exit_station
   PENALTY_FARE = 6
   STANDARD_FARE = 1
 
   def initialize
-    @entry_station = entry_station
+    @entry_station = nil
+    @exit_station = nil
     @all_trips = []
   end
 

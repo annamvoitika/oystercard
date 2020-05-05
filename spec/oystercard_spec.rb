@@ -1,5 +1,6 @@
 require 'oystercard'
 require 'journey'
+require 'journey_log'
 
 describe OysterCard do
   subject { OysterCard.new(0) }
