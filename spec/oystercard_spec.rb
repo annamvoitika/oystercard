@@ -1,8 +1,8 @@
 require 'oystercard'
 require 'journey'
 
-describe Oystercard do
-  subject { Oystercard.new(0) }
+describe OysterCard do
+  subject { OysterCard.new(0) }
   let(:card){double :card, in_journey?: true}
   let(:entry_station){double :entry_station}
   let(:exit_station){double :exit_station}
@@ -69,9 +69,8 @@ end
     journey = Journey.new
     journey.entrance('Holborn')
     expect(journey.exit('Mile End')).to eq ['Holborn', 'Mile End']
-  end 
+  end
 
 end
-
 
 end

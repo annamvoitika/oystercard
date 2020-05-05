@@ -16,4 +16,10 @@ class Journey
     @all_trips << exit_station
   end
 
+  def in_journey?
+    if @entry_station == nil
+      false
+    else true
+    end
+  end
 end
