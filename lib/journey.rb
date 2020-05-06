@@ -1,4 +1,3 @@
-
 class Journey
   attr_reader :entry_station, :exit_station
   PENALTY_FARE = 6
@@ -7,7 +6,7 @@ class Journey
   def initialize
     @entry_station = nil
     @exit_station = nil
-    @all_trips = []
+  #  @all_trips = []
   end
 
   def entrance(entry_station)
@@ -16,8 +15,8 @@ class Journey
 
   def exit(exit_station)
     @exit_station = exit_station
-    hash1 = {entry_station => exit_station}
-    @all_trips.push(hash1)
+#    hash1 = {entry_station => exit_station}
+#    @all_trips.push(hash1)
   end
 
   def in_journey?
